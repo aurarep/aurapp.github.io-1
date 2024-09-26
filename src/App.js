@@ -3,9 +3,13 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { HomePage } from './HomePage';
-import Diario from './Diario'; // Asegúrate de que esta ruta es correcta
-import { LoginButton } from './Login';
+import Diario from './secciones/Diario';
+import Informacion from './secciones/Informacion';
+import { LoginButton } from './secciones/Login';
 import './App.css';
+import Profile from './secciones/Profile';
+import Logout, { LogoutButton } from './modulos/Logout';
+
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -17,6 +21,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/diario" element={<Diario />} />
+            <Route path="/Informacion" element={<Informacion/>}/>
+            <Route path="/MenuBar" element={<Informacion/>}/>
+            <Route path="/Profile" element={<Profile/>}/>
           </Routes>
         ) : (
           <LoginButton />
